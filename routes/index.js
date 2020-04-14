@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var User = require("../models/usermodel");
+var Challenge = require("../models/challengemodel");
+var Response = require("../models/responsemodel");
 
 router.get("/name", (req,res) => {
   res.json({anything: "Charles"})
@@ -34,7 +36,7 @@ router.post("/login", (req,res) => {
   })
 })
 
-router.post("/addchallenge", (req,res) => {
+router.post("/startchallenge", (req,res) => {
   Challenge
   .create({
     title: req.body.title,

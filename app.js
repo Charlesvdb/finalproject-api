@@ -11,7 +11,7 @@ require('dotenv').config()
 
 app.use(cors({
   credentials: true,
-  origin: ["http://localhost:3000"]
+  origin: ["http://localhost:3001"]
 }))
 
 app.use(express.static('public'))
@@ -42,5 +42,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+app.use(cors({
+  origin: ["https://localhost:3000", "http://localhost:3000"],
+  credentials: true
+}))
 
 module.exports = app;
