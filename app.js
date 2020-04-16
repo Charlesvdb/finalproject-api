@@ -19,7 +19,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 mongoose
-  .connect('mongodb://localhost/finalproject', {useNewUrlParser: true})
+  .connect(process.env.DB, {useNewUrlParser: true})
   .then(x => console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`))
   .catch(err => console.error('Error connecting to mongo', err));
 
@@ -43,7 +43,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 app.use(cors({
-  origin: ["https://localhost:3000", "http://localhost:3000"],
+  origin: [process.env.REACT_APP_API, process.env.REACT_APP_API],
   credentials: true
 }))
 

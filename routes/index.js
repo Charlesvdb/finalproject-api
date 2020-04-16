@@ -3,14 +3,15 @@ var router = express.Router();
 var User = require("../models/usermodel");
 var Challenge = require("../models/challengemodel");
 var Response = require("../models/responsemodel");
-// const uploader = require('../configs/cloudinary-setup');
+const uploader = require('../configs/cloudinary-setup');
+const multer = require("multer")
 
 router.get("/name", (req,res) => {
   res.json({anything: "Charles"})
 })
 
 router.post("/signup",(req,res) => {
- User
+  User
  .create({
     username: req.body.username,
     password: req.body.password
@@ -73,12 +74,12 @@ router.get("/challengedetail/:id", (req,res) => {
   })
 })
 
-// router.post('/takechallenge', uploader.single("file"), (req, res, next) => {
-//   if (!req.file) {
-//     next(new Error('No file uploaded!'));
-//     return;
-//   }
-//   res.json({ secure_url: req.file.secure_url });
-// })
+router.post('/takechallenge', uploader.single("file"), (req, res, next) => {
+  if (!req.file) {
+    next(new Error('No file uploaded!'));
+    return;
+  }
+  res.json({ secure_url: req.file.secure_url });
+})
 
 module.exports = router;
