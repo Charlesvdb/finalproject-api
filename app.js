@@ -43,7 +43,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 app.use(cors({
-  origin: [process.env.REACT_APP_API, process.env.REACT_APP_API],
+  origin: true,
   credentials: true
 }))
 
