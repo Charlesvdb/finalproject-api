@@ -10,7 +10,7 @@ const cors = require("cors")
 
 app.use(cors({
   credentials: true,
-  origin: ["http://localhost:3001"]
+  origin: true
 }))
 
 app.use(express.static('public'))
@@ -41,10 +41,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
-app.use(cors({
-  origin: true,
-  credentials: true
-}))
 
 module.exports = app;
