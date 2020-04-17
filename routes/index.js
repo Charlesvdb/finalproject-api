@@ -82,4 +82,12 @@ router.post('/takechallenge', uploader.single("file"), (req, res, next) => {
   res.json({ secure_url: req.file.secure_url });
 })
 
+router.post('/profile', uploader.single("file"), (req, res, next) => {
+  if (!req.file) {
+    next(new Error('No file uploaded!'));
+    return;
+  }
+  res.json({ secure_url: req.file.secure_url });
+})
+
 module.exports = router;
