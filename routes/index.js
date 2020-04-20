@@ -104,7 +104,7 @@ router.post("/startchallenge", (req,res) => {
 
 router.get("/allchallenges", (req,res) => {
   Challenge
-  .find({})
+  .find()
   .then(response => {
     res.json(response)
   })
@@ -115,9 +115,11 @@ router.get("/allchallenges", (req,res) => {
 
 router.get("/challengedetail/:id", (req,res) => {
   Challenge
-  .findById({_id:id})
+  .findById({_id:req.params.id})
   .then(response => {
+    console.log("Charles")
     res.json(response)
+    console.log("Charles")
   })
   .catch(error => {
     res.json(error)
