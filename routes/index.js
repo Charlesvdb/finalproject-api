@@ -51,17 +51,16 @@ router.post("/login", (req,res) => {
     } else {
       bcrypt.compare(req.body.password, user.password, function(err,result) {
         if(!result) {
-          res.send("incorrect credentials")
+          res.json({message: "incorrect credentials"})
         } else {
           req.session.currentUser = user
           res.json("Logged in")
-          res.redirect("/allchallenges")
         }
       }) 
     }
   })
   .catch(error => {
-    res.send("An error happened: ",error)
+    res.json({message: error})
   })
 })
 
