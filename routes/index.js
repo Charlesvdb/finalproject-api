@@ -3,13 +3,10 @@ var router = express.Router();
 var User = require("../models/usermodel");
 var Challenge = require("../models/challengemodel");
 var Response = require("../models/responsemodel");
-const uploader = require('../configs/cloudinary-setup');
-const multer = require("multer")
 const bcrypt = require("bcrypt");
 
 //signup
 router.post("/signup", (req,res) => {
-  // const {username, password} = request.body
   
   User
   .findOne({"username": req.body.username})
@@ -105,21 +102,5 @@ router.get("/allchallenges", (req,res) => {
 //   })
 // })
 
-//upload file challenge
-// router.post('/takechallenge', uploader.single("file"), (req, res, next) => {
-//   if (!req.file) {
-//     next(new Error('No file uploaded!'));
-//     return;
-//   }
-//   res.json({ secure_url: req.file.secure_url });
-// })
-
-// router.post('/profile', uploader.single("file"), (req, res, next) => {
-//   if (!req.file) {
-//     next(new Error('No file uploaded!'));
-//     return;
-//   }
-//   res.json({ secure_url: req.file.secure_url });
-// })
 
 module.exports = router;

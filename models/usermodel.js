@@ -5,7 +5,8 @@ const userSchema = new Schema({
     username: String,
     password: String,
     location: String,
-    file: String
+    imageUrl: String,
+    error: String
 })
 
 const User = mongoose.model("users",userSchema)
