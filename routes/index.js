@@ -88,6 +88,18 @@ router.get("/allchallenges", (req,res) => {
   })
 })
 
+//delete challenge
+router.delete("/allchallenges", (req,res) => {
+  Challenge
+  .find()
+  .then(response => {
+    res.json(response)
+  })
+  .catch(error => {
+    res.json(error)
+  })
+})
+
 //request challenge info
 // router.get("/challengedetail/:id", (req,res) => {
 //   Challenge
