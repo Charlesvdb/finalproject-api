@@ -89,9 +89,9 @@ router.get("/allchallenges", (req,res) => {
 })
 
 //delete challenge
-router.delete("/allchallenges", (req,res) => {
+router.delete("/allchallenges/:id", (req,res) => {
   Challenge
-  .find()
+  .findByIdAndDelete(req.params.id)
   .then(response => {
     res.json(response)
   })
