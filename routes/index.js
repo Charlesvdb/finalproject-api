@@ -4,10 +4,10 @@ var User = require("../models/usermodel");
 var Challenge = require("../models/challengemodel");
 var Response = require("../models/responsemodel");
 const bcrypt = require("bcrypt");
+// const uploader = require('../configs/cloudinary-setup')
 
 //signup
 router.post("/signup", (req,res) => {
-  
   User
   .findOne({"username": req.body.username})
   .then(user => {
@@ -88,6 +88,18 @@ router.get("/allchallenges", (req,res) => {
   })
 })
 
+//request friends
+router.get("/friends", (req,res) =>{
+  User
+  .find()
+  .then(response => {
+    res.json(response)
+  })
+  .catch(error => {
+    res.json(error)
+  })
+})
+
 //delete challenge
 router.delete("/allchallenges/:id", (req,res) => {
   Challenge
@@ -100,7 +112,7 @@ router.delete("/allchallenges/:id", (req,res) => {
   })
 })
 
-//request challenge info
+// request challenge info
 // router.get("/challengedetail/:id", (req,res) => {
 //   Challenge
 //   .findById({_id:req.params.id})
@@ -114,5 +126,12 @@ router.delete("/allchallenges/:id", (req,res) => {
 //   })
 // })
 
+// router.post('/upload', uploader.single("imageUrl"), (req, res, next) => {
+//   if (!req.file) {
+//     next(new Error('No file uploaded!'));
+//     return;
+//   }
+//   res.json({ secure_url: req.file.secure_url });
+// })
 
 module.exports = router;
