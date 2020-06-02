@@ -66,7 +66,10 @@ router.post("/startchallenge", (req,res) => {
   Challenge
   .create({
     title: req.body.title,
-    description: req.body.description
+    description: req.body.description,
+    likes: req.body.likes,
+    dislikes: req.body.dislikes,
+    satisfaction: req.body.satisfaction
   })
   .then((response) => {
     res.json(response)
