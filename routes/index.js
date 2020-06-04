@@ -79,6 +79,20 @@ router.post("/startchallenge", (req,res) => {
   })
 })
 
+//add to-do
+router.post("/todo", (req,res) => {
+  Todo
+  .create({
+    title: req.body.title
+  })
+  .then((response) => {
+    res.json(response)
+  })
+  .catch(error => {
+    res.json(error)
+  })
+})
+
 //request challenges
 router.get("/allchallenges", (req,res) => {
   Challenge
