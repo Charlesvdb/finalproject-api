@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var User = require("../models/usermodel");
 var Challenge = require("../models/challengemodel");
+var Todo = require("../models/todomodel");
 var Response = require("../models/responsemodel");
 const bcrypt = require("bcrypt");
 // const uploader = require('../configs/cloudinary-setup')
@@ -86,9 +87,11 @@ router.post("/todo", (req,res) => {
     title: req.body.title
   })
   .then((response) => {
+    console.log("Charles the post todo is working")
     res.json(response)
   })
   .catch(error => {
+    console.log("Charles the post todo is NOT working")
     res.json(error)
   })
 })
@@ -108,6 +111,18 @@ router.get("/allchallenges", (req,res) => {
 //request friends
 router.get("/friends", (req,res) =>{
   User
+  .find()
+  .then(response => {
+    res.json(response)
+  })
+  .catch(error => {
+    res.json(error)
+  })
+})
+
+//request todos
+router.get("/todos", (req,res) => {
+  Todo
   .find()
   .then(response => {
     res.json(response)
