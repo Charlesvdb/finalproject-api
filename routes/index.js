@@ -121,7 +121,7 @@ router.get("/friends", (req,res) =>{
 })
 
 //request todos
-router.get("/todos", (req,res) => {
+router.get("/todo", (req,res) => {
   Todo
   .find()
   .then(response => {
