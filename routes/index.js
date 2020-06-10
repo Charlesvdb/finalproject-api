@@ -144,6 +144,18 @@ router.delete("/allchallenges/:id", (req,res) => {
   })
 })
 
+//delete todo
+router.delete("/todo/:id", (req,res)=>{
+  Todo
+  .findByIdAndDelete(req.params.id)
+  .then(response => {
+    res.json(response)
+  })
+  .catch(error => {
+    res.json(error)
+  })
+})
+
 // request challenge info
 // router.get("/challengedetail/:id", (req,res) => {
 //   Challenge
