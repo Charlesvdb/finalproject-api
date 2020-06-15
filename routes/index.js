@@ -82,6 +82,7 @@ router.post("/startchallenge", (req,res) => {
 
 //add to-do
 router.post("/todo", (req,res) => {
+  console.log(req.body.title)
   Todo
   .create({
     title: req.body.title
