@@ -158,18 +158,18 @@ router.delete("/todo/:id", (req,res)=>{
 })
 
 // request challenge info
-// router.get("/challengedetail/:id", (req,res) => {
-//   Challenge
-//   .findById({_id:req.params.id})
-//   .then(response => {
-//     console.log("Charles")
-//     res.json(response)
-//     console.log("Charles")
-//   })
-//   .catch(error => {
-//     res.json(error)
-//   })
-// })
+router.get("/challengedetail/:id", (req,res) => {
+  Challenge
+  .findById({_id:req.params.id})
+  .then(response => {
+    console.log("Charles")
+    res.json(response)
+    console.log("Charles")
+  })
+  .catch(error => {
+    res.json(error)
+  })
+})
 
 // router.post('/upload', uploader.single("imageUrl"), (req, res, next) => {
 //   if (!req.file) {
