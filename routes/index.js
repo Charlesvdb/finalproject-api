@@ -171,12 +171,13 @@ router.get("/challengedetail/:id", (req,res) => {
   })
 })
 
-// router.post('/upload', uploader.single("imageUrl"), (req, res, next) => {
-//   if (!req.file) {
-//     next(new Error('No file uploaded!'));
-//     return;
-//   }
-//   res.json({ secure_url: req.file.secure_url });
-// })
+//update profile settings
+router.post('/upload', uploader.single("imageUrl"), (req, res, next) => {
+  if (!req.file) {
+    next(new Error('No file uploaded!'));
+    return;
+  }
+  res.json({ secure_url: req.file.secure_url });
+})
 
 module.exports = router;
