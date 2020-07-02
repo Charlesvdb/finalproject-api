@@ -171,6 +171,7 @@ router.get("/challengedetail/:id", (req,res) => {
   })
 })
 
+//update profile settings
 // router.post('/upload', uploader.single("imageUrl"), (req, res, next) => {
 //   if (!req.file) {
 //     next(new Error('No file uploaded!'));
