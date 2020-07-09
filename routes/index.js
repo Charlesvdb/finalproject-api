@@ -80,6 +80,21 @@ router.post("/startchallenge", (req,res) => {
   })
 })
 
+//add peopleYouFollow
+router.post("/friends", (req,res) => {
+  User
+  .findByIdAndUpdate({_id:req.params.id})
+  .create({
+    title: req.body.title,
+  })
+  .then((response) => {
+    res.json(response)
+  })
+  .catch(error => {
+    res.json(error)
+  })
+})
+
 //add to-do
 router.post("/todo", (req,res) => {
   console.log(req.body.title)
