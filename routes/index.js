@@ -80,7 +80,7 @@ router.post("/startchallenge", (req,res) => {
   })
 })
 
-//add peopleYouFollow
+// add peopleYouFollow
 // router.post("/friends", (req,res) => {
 //   User
 //   .findByIdAndUpdate({_id:req.params.id})
