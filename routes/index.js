@@ -6,6 +6,13 @@ var Todo = require("../models/todomodel");
 var Response = require("../models/responsemodel");
 const bcrypt = require("bcrypt");
 // const uploader = require('../configs/cloudinary-setup')
+// import { getUser } from '../utils/auth'
+
+//getUser
+// export const getUser = (user) => {
+//   console.log("user has been GET out of local storage (just before)")
+//   return JSON.parse(window.localStorage.getItem("user"))
+// }
 
 //signup
 router.post("/signup", (req,res) => {
@@ -82,13 +89,14 @@ router.post("/startchallenge", (req,res) => {
 
 // add peopleYouFollow
 // router.post("/friends", (req,res) => {
+//   console.log("thisishappening")
+//   let iduser = getUser()._id 
+//   console.log(iduser)
 //   User
-//   .findByIdAndUpdate({_id:req.params.id})
-//   .create({
-//     title: req.body.title,
-//   })
+//   .findByIdAndUpdate({_id:iduser},{$push:{friends:req.body._id}})
 //   .then((response) => {
 //     res.json(response)
+//     console.log("thisishappening")
 //   })
 //   .catch(error => {
 //     res.json(error)

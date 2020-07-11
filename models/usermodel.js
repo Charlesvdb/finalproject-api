@@ -6,7 +6,7 @@ const userSchema = new Schema({
     password: String,
     location: String,
     imageUrl: String,
-    friends: [String],
+    friends: [mongoose.Schema.Types.ObjectId],
     error: String
 })
 
