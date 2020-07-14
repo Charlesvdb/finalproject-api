@@ -7,7 +7,7 @@ var Response = require("../models/responsemodel");
 const bcrypt = require("bcrypt");
 // const uploader = require('../configs/cloudinary-setup')
 // import { getUser } from '../utils/auth'
-const { getUser } = require('../utils/auth'); 
+// const { getUser } = require('../utils/auth'); 
 
 //signup
 router.post("/signup", (req,res) => {
@@ -83,21 +83,21 @@ router.post("/startchallenge", (req,res) => {
 })
 
 // add peopleYouFollow
-router.post("/friends", (req,res) => {
-  console.log(req.body)
-  console.log("thisishappening")
-  let iduser = getUser()._id 
-  console.log(iduser)
-  User
-  .findByIdAndUpdate({_id:iduser},{$push:{friends:req.body._id}})
-  .then((response) => {
-    res.json(response)
-    console.log("thisishappening")
-  })
-  .catch(error => {
-    res.json(error)
-  })
-})
+// router.post("/friends", (req,res) => {
+//   console.log(req.body)
+//   console.log("thisishappening")
+//   let iduser = getUser()._id 
+//   console.log(iduser)
+//   User
+//   .findByIdAndUpdate({_id:iduser},{$push:{friends:req.body._id}})
+//   .then((response) => {
+//     res.json(response)
+//     console.log("thisishappening")
+//   })
+//   .catch(error => {
+//     res.json(error)
+//   })
+// })
 
 //add to-do
 router.post("/todo", (req,res) => {
